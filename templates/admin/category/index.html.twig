@@ -1,0 +1,76 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}Kategori listesi{% endblock %}
+{% block content %}
+<div class="content-body">
+
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Anamenü</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Kategoriler</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Kategoriler</h4>
+
+
+                        <a href="{{ path('admin_category_new') }}">
+                            <button type="button" class="btn mb-1 btn-primary">Kategori Ekle</button>
+                        </a>
+                        <div class="table-responsive">
+                            <table class="table header-border">
+                                <thead>
+
+
+                        <tr>
+                            <th>Id</th>
+                            <th>Parent_id</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Keywords</th>
+                            <th>Status</th>
+                            <th>Göster</th>
+                            <th>Düzenle</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                                <tbody>
+                                {% for category in categories %}
+                                    <tr>
+                                        <td>{{ category.id }}</td>
+                                        <td>{{ category.parentId }}</td>
+                                        <td>{{ category.title }}</td>
+                                        <td>{{ category.description }}</td>
+                                        <td>{{ category.keywords }}</td>
+                                        <td>{{ category.status }}</td>
+                                        <td><a class="btn mb-1 btn-info" href="{{ path('admin_category_show', {'id': category.id}) }}">Göster</a></td>
+                                        <td><a class="btn mb-1 btn-primary" href="{{ path('admin_category_edit', { 'id': category.id,'pid': category.parentid}) }}">Düzelt</a></td>
+                                        <td><a href="">  {{ include('admin/category/_delete_form.html.twig') }}</a></td>
+
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                            <td colspan="9">Kategori  bulunamadı</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- #/ container -->
+</div>
+{% endblock %}

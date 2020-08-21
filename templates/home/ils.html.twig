@@ -1,0 +1,29 @@
+//----------
+$setSite= $settningrepository->findAll();
+$catlist=$categoryrepository->findby(['parent_id'=>0]);
+//----------
+
+
+$order = new Orders();
+$form = $this->createForm(OrdersType::class, $order);
+$form->handleRequest($request);
+die();
+$user=$this->getUser();
+$userid=$user->getid();
+$total=$shopcartrepository->toplam($userid);
+
+echo  $submittedToken=$request->request->get('token');
+if ($form->isSubmitted() && $form->isValid()) {
+$entityManager = $this->getDoctrine()->getManager();
+$entityManager->persist($order);
+$entityManager->flush();
+
+return $this->redirectToRoute('orders_index');
+}
+
+return $this->render('orders/new.html.twig', [
+'order' => $order,
+'form' => $form->createView(),
+'setSite' =>  $setSite,
+'catlist' =>$catlist
+

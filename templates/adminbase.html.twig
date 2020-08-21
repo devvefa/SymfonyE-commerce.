@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}yönetim Paneli{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script language=javascript" type="text/javascript">
+        function openWin(windowURL,windowName,windowFeatures) {
+            window.open(windowURL,windowName,windowFeatures)
+
+        }
+
+    </script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
+
+
+    <!-- Favicon icon -->
+    <link rel="icon" type="{{ asset('admin') }}/image/png" sizes="16x16" href="{{ asset('admin') }}/images/favicon.png">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('admin') }}/./plugins/highlightjs/styles/darkula.css">
+    <link href="{{ asset('admin') }}/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!--*******************
+    Preloader start
+********************-->
+<div id="preloader">
+    <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+        </svg>
+    </div>
+</div>
+<!--*******************
+    Preloader end
+********************-->
+
+
+<!--**********************************
+    Main wrapper start
+***********************************-->
+<div id="main-wrapper">
+
+    <!--**********************************
+        Nav header start{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <p>Email: {{ app.user.email }}</p>
+        {% endif %}
+
+    ***********************************-->
+    <div class="nav-header">
+        <div class="brand-logo">
+            <a href="index.html">
+                <b class="logo-abbr"><img src="{{ asset('admin') }}/images/logo.png" alt=""> </b>
+                <span class="logo-compact"><img src="{{ asset('admin') }}/./images/logo-compact.png" alt=""></span>
+                <span class="brand-title">
+                        <img src="{{ asset('admin') }}/images/logo-text.png" alt="">
+                    </span>
+            </a>
+        </div>
+    </div>
+</div>
+    <!--**********************************
+        Nav header end
+    ***********************************-->
+
+    <!--**********************************
+        Header start
+    ***********************************-->
+    <div class="header">
+        <div class="header-content clearfix">
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="toggle-icon"><i class="icon-menu"></i></span>
+                </div>
+            </div>
+            <div class="header-left">
+                <div class="input-group icons">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
+                    </div>
+                    <input type="search" class="form-control" placeholder="Search Dashboard" aria-label="Search Dashboard">
+                    <div class="drop-down   d-md-none">
+                        <form action="#">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <ul class="clearfix">
+                    <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
+                            <i class="mdi mdi-email-outline"></i>
+                            <span class="badge gradient-1 badge-pill badge-primary">3</span>
+                        </a>
+                        <div class="drop-down animated fadeIn dropdown-menu">
+                            <div class="dropdown-content-heading d-flex justify-content-between">
+                                <span class="">3 New Messages</span>
+
+                            </div>
+                            <div class="dropdown-content-body">
+                                <ul>
+                                    <li class="notification-unread">
+                                        <a href="javascript:void(0)">
+                                            <img class="float-left mr-3 avatar-img" src="{{ asset('admin') }}/images/avatar/1.jpg" alt="">
+                                            <div class="notification-content">
+                                                <div class="notification-heading">Saiful Islam</div>
+                                                <div class="notification-timestamp">08 Hours ago</div>
+                                                <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-unread">
+                                        <a href="javascript:void()">
+                                            <img class="float-left mr-3 avatar-img" src="{{ asset('admin') }}/images/avatar/2.jpg" alt="">
+                                            <div class="notification-content">
+                                                <div class="notification-heading">Adam Smith</div>
+                                                <div class="notification-timestamp">08 Hours ago</div>
+                                                <div class="notification-text">Can you do me a favour?</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void()">
+                                            <img class="float-left mr-3 avatar-img" src="{{ asset('admin') }}/images/avatar/3.jpg" alt="">
+                                            <div class="notification-content">
+                                                <div class="notification-heading">Barak Obama</div>
+                                                <div class="notification-timestamp">08 Hours ago</div>
+                                                <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void()">
+                                            <img class="float-left mr-3 avatar-img" src="{{ asset('admin') }}/images/avatar/4.jpg" alt="">
+                                            <div class="notification-content">
+                                                <div class="notification-heading">Hilari Clinton</div>
+                                                <div class="notification-timestamp">08 Hours ago</div>
+                                                <div class="notification-text">Hello</div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
+                            <i class="mdi mdi-bell-outline"></i>
+                            <span class="badge badge-pill gradient-2 badge-primary">3</span>
+                        </a>
+                        <div class="drop-down animated fadeIn dropdown-menu dropdown-notfication">
+                            <div class="dropdown-content-heading d-flex justify-content-between">
+                                <span class="">2 New Notifications</span>
+
+                            </div>
+                            <div class="dropdown-content-body">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void()">
+                                            <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
+                                            <div class="notification-content">
+                                                <h6 class="notification-heading">Events near you</h6>
+                                                <span class="notification-text">Within next 5 days</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void()">
+                                            <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
+                                            <div class="notification-content">
+                                                <h6 class="notification-heading">Event Started</h6>
+                                                <span class="notification-text">One hour ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void()">
+                                            <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
+                                            <div class="notification-content">
+                                                <h6 class="notification-heading">Event Ended Successfully</h6>
+                                                <span class="notification-text">One hour ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void()">
+                                            <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
+                                            <div class="notification-content">
+                                                <h6 class="notification-heading">Events to Join</h6>
+                                                <span class="notification-text">After two days</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="icons dropdown d-none d-md-flex">
+                        <a href="javascript:void(0)" class="log-user"  data-toggle="dropdown">
+                            <span>
+
+
+
+                            </span>
+                        </a>
+                       <div class="drop-down dropdown-language animated fadeIn  dropdown-menu">
+
+                        </div>
+                    </li>
+                    <li class="icons dropdown">
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <h3> {{ app.user.name }}</h3    >
+                        {% endif %}
+                        <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+
+                            <span class="activity active"></span>
+                            <img src="{{ asset('admin') }}/images/user/1.png" height="40" width="40" alt="">
+                        </div>
+                        <div class="drop-down dropdown-profile   dropdown-menu">
+                            <div class="dropdown-content-body">
+                                <ul>
+                                    <li>
+                                        <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="email-inbox.html"><i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill badge-primary">3</div></a>
+                                    </li>
+
+                                    <hr class="my-2">
+                                    <li>
+                                        <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
+                                    </li>
+                                    <li><a href="{{ path('app_logout') }}"><i class="icon-key"></i> <span>Çıkış yap</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--**********************************
+        Header end ti-comment-alt
+    ***********************************-->
+
+    <!--**********************************
+        Sidebar start
+    ***********************************-->
+    <div class="nk-sidebar">
+        <div class="nk-nav-scroll">
+            <ul class="metismenu" id="menu">
+                <li>
+                    <a href="javascript:void()">
+                        <i class="icon-home"></i><span class="nav-text">AnaMenü</span>
+                    </a>
+
+                </li>
+                <li class="mega-menu mega-menu-sm">
+                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="icon-tag"></i><span class="nav-text">Siparişlar</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="{{ path('admin_orders_index' ,{'slug':'new'})    }}">Yeni Sipariş</a></li>
+                        <li><a href="{{ path('admin_orders_index' ,{'slug': 'accepted'} ) }}">Onaylanan Siparişlar</a></li>
+                        <li><a href="{{ path('admin_orders_index' ,{'slug':   'canceled'}) }}">İptal Edinlenler</a></li>
+                        <li><a href="{{ path('admin_orders_index' ,{'slug':'inshipping' } ) }}">Kargodakiler</a></li>
+                        <li><a href="{{ path('admin_orders_index' ,{'slug'  : 'complated'}) }}">Teslim Edinlenler</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{{url('admin')}}/product" aria-expanded="false">
+                        <i class="fa fa-shopping-cart"></i><span class="nav-text">Ürünler</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url('admin')}}/category" aria-expanded="false">
+                        <i class="icon-grid gradient-9-text"></i><span class="nav-text">Kategoriler</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url('admin')}}/settning " aria-expanded="false">
+                        <i class="icon-menu menu-icon"></i><span class="nav-text">Ayarlar</span>
+
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url('admin')}}/kullanici" aria-expanded="false">
+                            <i class="icon-people">
+                        </i><span class="nav-text">Üyeler</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="widgets.html" aria-expanded="false">
+                        <i class="icon-envelope menu-icon"></i>
+                        <span class="nav-text">Üye Mesajları</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="widgets.html" aria-expanded="false">
+                        <i class="fa fa-comments"></i></i><span class="nav-text">Üye Yorumları</span>
+                    </a>
+                </li>
+                <li>
+
+
+                    <a href="/admin/messages/" aria-expanded="false">
+                        <i class="fa fa-inbox "></i></i><span class="nav-text">Mesajlar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url('admin')}}/slids" aria-expanded="false">
+                        <i class="icon-badge menu-icon"></i><span class="nav-text">slider</span>
+                    </a>
+                </li>
+
+
+
+
+            </ul>
+        </div>
+    </div>
+    <!--**********************************
+        Sidebar end
+    ***********************************-->
+
+    <!--**********************************
+        Content body start
+    ***********************************-->
+   {% block content %}{% endblock %}
+    <!--**********************************
+        Content body end
+    ***********************************-->
+
+
+    <!--**********************************
+        Footer start
+    ***********************************-->
+    <div class="footer">
+        <div class="copyright">
+            <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+        </div>
+    </div>
+    <!--**********************************
+        Footer end
+    ***********************************-->
+
+<!--**********************************
+    Main wrapper end
+***********************************-->
+
+<!--**********************************
+    Scripts
+***********************************-->
+
+<script src="{{ asset('admin') }}/plugins/common/common.min.js"></script>
+<script src="{{ asset('admin') }}/js/custom.min.js"></script>
+<script src="{{ asset('admin') }}/js/settings.js"></script>
+<script src="{{ asset('admin') }}/js/gleek.js"></script>
+<script src="{{ asset('admin') }}/js/styleSwitcher.js"></script>
+<script src="{{ asset('admin') }}/./plugins/highlightjs/highlight.pack.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+    (function($) {
+        "use strict"
+
+        new quixSettings({
+            version: "light", //2 options "light" and "dark"
+            layout: "vertical", //2 options, "vertical" and "horizontal"
+            navheaderBg: "color_1", //have 10 options, "color_1" to "color_10"
+            headerBg: "color_1", //have 10 options, "color_1" to "color_10"
+            sidebarStyle: "full", //defines how sidebar should look like, options are: "full", "compact", "mini" and "overlay". If layout is "horizontal", sidebarStyle won't take "overlay" argument anymore, this will turn into "full" automatically!
+            sidebarBg: "color_1", //have 10 options, "color_1" to "color_10"
+            sidebarPosition: "fixed", //have two options, "static" and "fixed"
+            headerPosition: "static", //have two options, "static" and "fixed"
+            containerLayout: "wide",  //"boxed" and  "wide". If layout "vertical" and containerLayout "boxed", sidebarStyle will automatically turn into "overlay".
+            direction: "ltr" //"ltr" = Left to Right; "rtl" = Right to Left
+        });
+
+
+    })(jQuery);
+</script>
+{% block javascripts %}{% endblock %}
+</body>
+
+</html>

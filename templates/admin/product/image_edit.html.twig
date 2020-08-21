@@ -1,0 +1,26 @@
+
+{% extends 'imgbase.html.twig' %}
+
+{% block title %} Detayı {% endblock %}
+
+{% block body %}
+
+    <form action="{{ path('admin_product_iupdate',{'id': id}) }}" method="post" enctype="multipart/form-data">
+        bir resim yükle:
+        <input name="id" value="{{ id }}" type="number" readonly>
+        <input type="file" name="imagename" id="fileToUpload"><br>
+        <input type="submit" value="Upload Image" name="submit">
+    </form>
+
+    {% if product.image !=null%}
+
+        <img  src=" {{ asset('uploads') }}/images/{{ product.image }}"  >
+
+    {%endif  %}
+
+
+
+
+
+
+{% endblock  %}

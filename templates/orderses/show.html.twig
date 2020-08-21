@@ -1,0 +1,115 @@
+
+{% extends 'frontbase.html.twig' %}
+
+{% block header %} {% include 'home/header.html.twig' %}{% endblock %}
+
+{% block content %}
+    <div class="contact-w3l">
+    <div class="container">
+    <section id="cart_items">
+        <div class="container">
+            <div class="breadcrumbs">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li class="active">orderses</li>
+                </ol>
+            </div>
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <tbody>
+                    <tbody>
+                    <tr>
+                        <td  >Id:</td>
+                        <td   >{{ orderse.id }}</td>
+                    </tr>
+                    <tr>
+                        <td  >Userid:</td>
+                        <td  >{{ orderse.userid }}</td>
+                    </tr>
+                    <tr>
+                        <td  >Amount:</td>
+                        <td  >{{ orderse.amount }}</td>
+                    </tr>
+                    <tr>
+                        <td  >Name:</td>
+                        <td  >{{ orderse.name }}</td>
+                    </tr>
+                    <tr>
+                        <td  >City:</td>
+                        <td  >{{ orderse.city }}</td>
+                    </tr>
+                    <tr>
+                        <td  >Address:</td>
+                        <td  >{{ orderse.address }}</td>
+                    </tr>
+                    <tr>
+                        <td  >Phone:</td>
+                        <td  >{{ orderse.phone }}</td>
+                    </tr>
+                    <tr>
+                        <td  >Shipinfo:</td>
+                        <td  >{{ orderse.shipinfo }}</td>
+                    </tr>
+                    <tr>
+                        <td  >Note:</td>
+                        <td  >{{ orderse.note }}</td>
+                    </tr>
+                    <tr>
+                        <td  >Status:</td>
+                        <td  >{{ orderse.status }}</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                    <tr class="cart_menu">
+
+                        <td class="description">name</td>
+                        <td class="price">quantity</td>
+                        <td class="quantity">amount</td>
+                        <td class="total">status</td>
+                        <td></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set total = 0 %}
+
+                    {% set total = 0 %}
+                    {% for detail in  orderdet %}
+                        {%  set total=total +  detail.amount  %}
+                        <tr>
+                            <td class="cart_description">
+                                <h4>{{  detail.name }}</h4>
+                            </td>
+
+                            <td class="cart_description">
+                                <h4><a href="">{{  detail.quantity }}</a></h4>
+
+                            </td>
+                            <td class="cart_price">
+                                <p>{{  detail.amount }}</p>
+                            </td>
+                            <td class="cart_price">
+                                <p>{{  detail.status }}</p>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section> <!--/#cart_items-->
+      <p>TOPLAM SİPARİŞ TUTARI</p>  <h1>{{ total }}₺</h1>
+
+    <a href="{{ path ('orderses_index') }}">back to list</a>
+
+    </div></div>
+{% endblock %}

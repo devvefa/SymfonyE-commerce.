@@ -1,0 +1,174 @@
+{% extends 'frontbase.html.twig' %}
+{% block title %} {% endblock %}
+{% block keywords %}  {% endblock %}
+{% block description %} {% endblock %}
+
+{% block header %} {% include 'home/header.html.twig' %}{% endblock %}
+
+{% block yol %}
+
+
+<!-- Single Page -->
+    <div class="banner-bootom-w3-agileits">
+        <div class="container">
+            <!-- tittle heading -->
+            <h3 class="tittle-w3l">Ürün Detayı
+                <span class="heading-style">
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+            </h3>
+            <!-- //tittle heading -->
+
+
+
+            <!-- //tittle heading -->
+            <div class="col-md-5 single-right-left ">
+                <div class="grid images_3_of_2">
+                    <div class="flexslider">
+                        <ul class="slides">
+
+
+                            {%  for rs in images %}
+                                <li data-thumb="{{asset('uploads') }}/images/{{rs.image }}">
+                                    <div class="thumb-image">
+                                        <img src=" {{asset('uploads') }}/images/{{rs.image }}" data-imagezoom="true" class="img-responsive" alt=""> </div>
+                                </li>
+                            {% endfor %}
+
+
+                            <li data-thumb="images/se2.jpg">
+                                <div class="thumb-image">
+                                    <img src="images/se2.jpg" data-imagezoom="true" class="img-responsive" alt=""> </div>
+                            </li>
+                            <li data-thumb="images/se3.jpg">
+                                <div class="thumb-image">
+                                    <img src="images/se3.jpg" data-imagezoom="true" class="img-responsive" alt=""> </div>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 single-right-left simpleCart_shelfItem">
+
+                <h1>  {{ data[0].title }} </h1>
+
+                <div class="rating1">
+					<span class="starRating">
+						<input id="rating5" type="radio" name="rating" value="5">
+						<label for="rating5">5</label>
+						<input id="rating4" type="radio" name="rating" value="4">
+						<label for="rating4">4</label>
+						<input id="rating3" type="radio" name="rating" value="3" checked="">
+						<label for="rating3">3</label>
+						<input id="rating2" type="radio" name="rating" value="2">
+						<label for="rating2">2</label>
+						<input id="rating1" type="radio" name="rating" value="1">
+						<label for="rating1">1</label>
+					</span>
+                </div>
+                <div class="mb-3">
+                    <var class="price h3 text-warning">
+                        <h1 style="color: #0c85d0"><span  class="num">{{ data[0].sprice }}₺</span></h1>
+                        <del> <h1>{{ data[0].sprice }}₺</h1></del>
+
+                        <label>ücretsiz kargo </label>
+                    </var>
+
+                </div>
+                <dl>
+                    <dt>Açıklama</dt>
+                    <dd><p>Here goes description
+                            quis nostrud exercitation ullamco </p></dd>
+                    counter            </dl>
+
+                <dl class="row">
+                    <dt class="col-sm-3">Model#</dt>
+                    <dd class="col-sm-9">----</dd>
+
+                    <dt class="col-sm-3">Color</dt>
+                    <dd class="col-sm-9">------ </dd>
+
+                    <dt class="col-sm-3">Adet</dt>
+                    <form action="{{ path('shopcart_new')}}" method="post">
+
+
+
+                        <input type="number" name="shopcart[quantity]" value="1" type="text" max="{{data[0].amount}}"/>
+                        <input type="hidden" name="shopcart[productid]" value="  {{ data[0].id }}">
+
+                        <input type="hidden" name="shopcart[userid]" value="{{ app.user.id }}">
+                        <input type="hidden" name="token" value="{{ csrf_token('add-item') }}"/>
+                        <input type="submit" name="submit" value="Add to cart" class="button" />
+
+                    </form>
+
+
+
+                </dl>
+                <h1>value </h1>
+
+                <div class="single-infoagile">
+                    <p>
+
+                        ------------------------------
+                        --------------------------
+                        ---------------------------
+                        ---------------------------
+                        ---------------------------
+
+                    </p>
+                </div>
+                <div class="product-single-w3l">
+                    <p>
+                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>-----------------------</p>
+
+
+
+
+
+                    <p>
+                        <i class="fa fa-refresh" aria-hidden="true"></i>Bütün ürünler
+                        <label>iade idilir.</label>
+                    </p>
+                </div>
+
+            </div>
+            <div class="clearfix"> </div>
+
+            <section class="terms-of-use">
+                <!-- terms -->
+                <div class="terms">
+                    <div class="container">
+                        <!-- tittle heading -->
+                        <h3 class="tittle-w3l">ürün açıklamaları
+                            <span class="heading-style">
+						<i></i>
+						<i></i>
+						<i></i>
+					</span>
+                        </h3>
+                        <!-- //tittle heading -->
+
+                        <p>
+                            data[0].detail
+                            {{ data[0].detail}}
+                        </p>
+
+                        t
+                    </div>
+                </div>
+                <!-- /terms -->
+            </section>
+        </div></div>
+
+
+
+
+
+{% endblock %}
+{% block javascript %} {% include('home/javascript.html.twig') %}{% endblock %}
+
+{% block footer %} {% include 'home/footer.html.twig' %}{% endblock %}

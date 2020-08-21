@@ -1,0 +1,13 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit Orderses{% endblock %}
+
+{% block body %}
+    <h1>Edit Orderses</h1>
+
+    {{ include('orderses/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('orderses_index') }}">back to list</a>
+
+    {{ include('orderses/_delete_form.html.twig') }}
+{% endblock %}

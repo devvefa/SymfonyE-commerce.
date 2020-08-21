@@ -1,0 +1,145 @@
+{% extends 'imgbase.html.twig' %}
+
+{% block title %} Detayı {% endblock %}
+
+{% block body %}
+
+    <div class="content-body">
+        {{ include('admin/user/mesagges.html.twig') }}
+
+
+        <!-- row -->
+
+        <div class="container-fluid">
+            <div class="row">
+                <table class="table">
+                    <thead>
+
+                    <tr>
+                        <td>KUllaıncı :</td>
+                        <td>{{ orderse.userid }}</td>
+                    </tr>
+                    <tr>
+                        <td>Fiyat:</td>
+                        <td>{{ orderse.amount }}</td>
+                    </tr>
+                    <tr>
+                        <td>Name:</td>
+                        <td>{{ orderse.name }}</td>
+                    </tr>
+                    <tr>
+                        <td>City:</td>
+                        <td>{{ orderse.city }}</td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td>{{ orderse.address }}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone:</td>
+                        <td>{{ orderse.phone }}</td>
+                    </tr>
+                    <form action="{{ path('admin_orders_update',{'id': orderse.id}) }}" method="post">
+                    <tr>
+                        <td>Shipinfo:</td>
+                        <td>
+                            <div class="form-group">
+
+                                <textarea class="form-control" id="ea1" rows="3" name="shipinfo"
+                                          name="shipinfo">{{ orderse.shipinfo }} </textarea>
+                            </div>
+                        </td>
+
+                    </tr>
+                        <tr>
+
+                            <td>Admin Note:</td>
+                            <td>
+                                <div class="form-group">
+
+                                <textarea class="form-control" id="ea1" rows="3"name="note"
+                                        > {{ orderse.note }}</textarea>
+                                </div>
+                            </td>
+
+                        </tr>
+
+                           <tr>
+                               <td>Status:</td>
+                               <td>
+                                   <label class="mdb-main-label">Blue select</label>
+                                   <select name="status" class="mdb-select md-form colorful-select dropdown-primary">
+                                       <option >{{ orderse.status }}</option>
+                                       <option >new</option>
+                                       <option >accepted</option>
+                                       <option >canceled</option>
+                                       <option >inshipping</option>
+                                       <option v>complated</option>
+                                   </select>
+                               </td>
+                           </tr>
+
+                <tr> <td><input type="submit" value="Güncelle" > </td></tr>
+
+
+                    </form>
+                    </thead>
+
+
+                </table>
+            </div>
+        </div>
+        <div class="table-responsive cart_info">
+            <table class="table table-condensed">
+                <thead>
+                <tr class="cart_menu">
+
+                    <td>name</td>
+                    <td>quantity</td>
+                    <td>amount</td>
+                    <td>status</td>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody>
+                {% set total = 0 %}
+
+                {% set total = 0 %}
+                {% for detail in  orderdetail %}
+                    {% set total=total +  detail.amount %}
+                    <tr>
+                        <td class="cart_description">
+                            <h4>{{ detail.name }}</h4>
+                        </td>
+
+                        <td class="cart_description">
+                            <h4><a href="">{{ detail.quantity }}</a></h4>
+
+                        </td>
+                        <td class="cart_price">
+                            <p>{{ detail.amount }}</p>
+                        </td>
+                        <td class="cart_price">
+                            <p>{{ detail.status }}</p>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p>TOPLAM SİPARİŞ TUTARI</p>  <h1>{{ total }}₺</h1>
+
+
+
+
+    <!-- #/ onclick="return confirm<tr>
+
+                    <td>kullancı :</td>
+                    <td> orderse.id }}</td>
+                    </tr> ('Silinecek emin  misin') "  container -->
+{% endblock %}

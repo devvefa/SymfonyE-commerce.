@@ -1,0 +1,101 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Üye Ekleme{% endblock %}
+
+{% block content %}
+<div class="content-body">
+
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Üyeler</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Üye D</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-title">
+                        <h3>Üye Detayı </h3>
+                    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Keywords</th>
+                <th>Company</th>
+                <th>Adress</th>
+                <th>Fax</th>
+                <th>Tele</th>
+                <th>Email</th>
+                <th>Facebook</th>
+                <th>Twitter</th>
+                <th>Instagram</th>
+                <th>Linkedin</th>
+                <th>Smptserver</th>
+                <th>Smtpmail</th>
+                <th>Smtpport</th>
+                <th>Aboutus</th>
+                <th>Contact</th>
+                <th>Referance</th>
+                <th>Created_at</th>
+                <th>Updated_up</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for settning in settnings %}
+            <tr>
+                <td>{{ settning.id }}</td>
+                <td>{{ settning.title }}</td>
+                <td>{{ settning.description }}</td>
+                <td>{{ settning.keywords }}</td>
+                <td>{{ settning.company }}</td>
+                <td>{{ settning.adress }}</td>
+                <td>{{ settning.fax }}</td>
+                <td>{{ settning.tele }}</td>
+                <td>{{ settning.email }}</td>
+                <td>{{ settning.facebook }}</td>
+                <td>{{ settning.twitter }}</td>
+                <td>{{ settning.instagram }}</td>
+                <td>{{ settning.linkedin }}</td>
+                <td>{{ settning.smptserver }}</td>
+                <td>{{ settning.smtpmail }}</td>
+                <td>{{ settning.smtpport }}</td>
+                <td>{{ settning.aboutus }}</td>
+                <td>{{ settning.contact }}</td>
+                <td>{{ settning.referance }}</td>
+                <td>{{ settning.createdAt ? settning.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ settning.updatedUp }}</td>
+                <td>
+                    <a href="{{ path('admin_settning_show', {'id': settning.id}) }}">show</a>
+                    <a href="{{ path('admin_settning_edit', {'id': settning.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="22">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_settning_new') }}">Create new</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- #/ onclick="return confirm ('Silinecek emin  misin') "  container -->
+{% endblock %}
+

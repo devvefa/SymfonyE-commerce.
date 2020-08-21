@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}yönetim Paneli{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script language=javascript" type="text/javascript">
+        function openWin(windowURL,windowName,windowFeatures) {
+            window.open(windowURL,windowName,windowFeatures)
+
+        }
+
+    </script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/12.3.1/classic/ckeditor.js"></script>
+
+
+    <!-- Favicon icon -->
+    <link rel="icon" type="{{ asset('admin') }}/image/png" sizes="16x16" href="{{ asset('admin') }}/images/favicon.png">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{{ asset('admin') }}/./plugins/highlightjs/styles/darkula.css">
+    <link href="{{ asset('admin') }}/css/style.css" rel="stylesheet">
+
+</head>
+<body>
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Üye Ekleme{% endblock %}
+
+{% block content %}
+<div class="content-body">
+
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Üyeler</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Üye DÜzenle</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-title">
+                        <h3>Üye Oluşturma Formu </h3>
+                    </div>
+
+
+
+
+                    {{ include('admin/category/_form.html.twig', {'button_label': 'Update'}) }}
+
+                    <a href="{{ path('admin_category_index') }}">Kategori Listesine Dön</a>
+
+                    {{ include('admin/category/_delete_form.html.twig') }}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- #/ onclick="return confirm ('Silinecek emin  misin') "  container -->
+{% endblock %}
+
+
+
+

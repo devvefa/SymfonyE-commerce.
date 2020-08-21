@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('admin_settning_delete', {'id': settning.id}) }}" onsubmit="return confirm('Silinecek emin  misiniz');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ settning.id) }}">
+    <button class="btn">Delete</button>
+</form>

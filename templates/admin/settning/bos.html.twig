@@ -1,0 +1,167 @@
+<div class="form-group">
+    <form class="form-horizontal"  method="post" >
+        <div class="card">
+            <div class="card-body">
+                    <h2 >setting</h2>
+                <!-- Nav tabs -->
+                <div class="default-tab">
+                    <ul class="nav nav-tabs mb-3" role="tablist">
+                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#home">Genel Bilgiler</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#profile">İletişim Bilgileri</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#contact">SMTP</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#message"><D></D>Hakkımızda</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel">
+
+
+
+
+                            ->add('title')
+                            ->add('description')
+                            ->add('keywords')
+                            ->add('company')
+                            ->add('adress')
+                            ->add('fax')
+                            ->add('tele')
+                            ->add('email')
+                            ->add('facebook')
+                            ->add('twitter')
+                            ->add('instagram')
+                            ->add('linkedin')
+                            ->add('smptserver')
+                            ->add('smtpmail')
+                            ->add('smtpport')
+
+                            ->add('created_at')
+                            ->add('updated_up')
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" id="val-username" value="{{ setting.adress }}"name="setting[adress]" placeholder="Enter a description..">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-2 col-form-label" for="val-username">fax  <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" id="val-username" value="{{ setting.fax }}"name="setting[fax]" placeholder="Enter a description..">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-2 col-form-label" for="val-username">E-mail <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-8">
+                                    <input type="email" class="form-control" id="val-username" value="{{ setting.email }}"name="setting[email]" placeholder="Enter a email..">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane fade" id="contact">
+                            <div class="form-group row">
+                                <label class="col-lg-2 col-form-label" for="val-username">SMTP Server <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" id="val-username" value="{{ setting.smtpserver }}"name="setting[smtpserver]" placeholder="Enter a smtpserver..">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-2 col-form-label" for="val-username">SMTP E-mail <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" id="val-username" value="{{ setting.smtpemail }}"name="setting[smtpemail]" placeholder="Enter a smtpemail..">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-2 col-form-label" for="val-username">SMTP Port <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" id="val-username" value="{{ setting.smtpport }}"name="setting[smtpport]" placeholder="Enter a smtpport..">
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="form-group row">
+                                <label class="col-lg-2 col-form-label" for="val-username">Aktif Durum <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-8">
+                                    <select class="form-control" id="val-skill" name="setting[status]">
+                                        <option >{{ setting.status }}</option>
+                                        <option >True</option>
+                                        <option >false</option>
+
+                                    </select>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="tab-pane fade" id="message">
+                            <div class="form-group row">
+                                <label class="col-lg-2 col-form-label" for="editor">Detail(Detay) <span class="text-danger">*</span>
+                                </label>
+                                <div class="col-lg-8">
+                                    <textarea id="editor" rows="10" cols="100" name="setting[aboutus]" > {{ setting.aboutus }}</textarea>
+                                </div>
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-lg-8 ml-auto">
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                        <a  class="btn btn-primary"href="{{ path('admin_setting_index') }}">Vazgeç</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+    </form>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+</div>

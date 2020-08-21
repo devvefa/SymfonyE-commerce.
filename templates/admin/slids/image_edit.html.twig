@@ -1,0 +1,27 @@
+
+{% extends 'imgbase.html.twig' %}
+
+{% block title %} Detayı {% endblock %}
+
+{% block body %}
+
+    <form action="{{ path('admin_slids_imgsdate', {'id':id}) }}" method="post" enctype="multipart/form-data">
+        bir resim yükle:
+        <input name="Id" value="{{ id }}" type="number" readonly>
+        <input type="file" name="slidname" id="fileToUpload"><br>
+        <input type="submit" value="Upload Image" name="submit">
+    </form>
+
+    {% if slid.imgs !=null%}
+
+        <img  src=" {{ asset('uploads') }}/images/{{ slid.imgs }}"  >
+
+    {%endif  %}
+
+
+
+
+
+
+{% endblock  %}
+

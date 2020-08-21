@@ -1,0 +1,52 @@
+
+{% extends 'frontbase.html.twig' %}
+
+{% block head1 %}{% include 'home/head1.html.twig' %}{% endblock %}
+
+{% block yol %}
+
+
+<div class="ads-grid">
+    <div class="container">
+
+            <!-- tittle heading -->
+            <h3 class="tittle-w3l">
+                <span class="heading-style">Üye Girişi
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+            </h3>
+
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+                <form method="post">
+                    <div class="">
+
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+                    </div>
+
+
+
+
+                    <div class="">
+
+                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+                         </div>
+
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                    <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+                </form>
+            </div>
+
+    </div>
+{% endblock %}
+
+{% block javascript %} {% include('home/javascript.html.twig')  %}{% endblock %}
+
+
+

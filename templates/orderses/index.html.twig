@@ -1,0 +1,72 @@
+
+{% extends 'frontbase.html.twig' %}
+
+{% block header %} {% include 'home/header.html.twig' %}{% endblock %}
+
+{% block content %}
+<div class="contact-w3l">
+    <div class="container">
+    {{ include('admin/user/mesagges.html.twig') }}
+    <h1>Orderses index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Amount</th>
+                <th>City</th>
+                <th>Phone</th>
+                <th>Shipinfo</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Göster</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for orderse in ord    %}
+            <tr>
+                <td>{{ orderse.name }}</td>
+                <td>{{ orderse.amount }}</td>
+
+
+                <td>{{ orderse.city }}</td>
+                <td>{{ orderse.phone }}</td>
+                <td>{{ orderse.shipinfo }}</td>
+                <td>{{ orderse.status }}</td>
+               <td>{{ orderse.createdAt ? orderse.createdAt|date('Y-m-d ') : '' }}</td>
+                <td>
+
+                    <a class="btn btn-default" href="{{ path('orderses_show', {'id': orderse.id}) }}">Göster</a>
+
+                   <td>   {{ include('orderses/_delete_form.html.twig') }}</td>
+
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">Sipariş bulunamadı</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('home') }}">a</a>
+    </div></div>
+{% endblock %}
+{% block footer %} {% include 'home/footer.html.twig' %}{% endblock %}
+
+{#
+$catlist=$categoryrepository->findby(['parent_id'=>0]);
+$Kuser = $this->getUser();
+
+
+$kuserid = $Kuser->getid();
+//  $ord=$ordersesRepository->findBy(['userid'=>$kuserid]);
+
+return $this->render('orderses/index.html.twig', [
+'orderses' => $ordersesRepository->findAll(),
+'catlist' => $catlist,
+//  'ord'=>$ord#}

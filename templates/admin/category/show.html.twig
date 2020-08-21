@@ -1,0 +1,76 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Kategori Detayı {% endblock %}
+
+{% block content %}
+<div class="content-body">
+
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Anamenü</a></li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Kategoriler</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Kategori Detayı</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-title">
+                        <h3>Üye Detayı </h3>
+                    </div>
+
+
+
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ category.id }}</td>
+                             </tr>
+                            <tr>
+                                <th>Parent_id</th>
+                                <td>{{ category.parentId }}</td>
+                            </tr>
+                            <tr>
+                                <th>Title</th>
+                                <td>{{ category.title }}</td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td>{{ category.description }}</td>
+                            </tr>
+                            <tr>
+                                <th>Keywords</th>
+                                <td>{{ category.keywords }}</td>
+                            </tr>
+                            <tr>
+                                <th>Status</th>
+                                <td>{{ category.status }}</td>
+                            </tr>
+                            <tr>
+
+                        </tbody>
+                    </table>
+                    <div class="form-group row">
+                            <a class="btn mb-1 btn-primary" href="{{ path('admin_category_edit', {'id': category.id,'pid': category.parentid}) }}">Düzelt</a>
+                            <a href="">{{ include('admin/category/_delete_form.html.twig') }}</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- #/ onclick="return confirm ('Silinecek emin  misin') "  container -->
+{% endblock %}

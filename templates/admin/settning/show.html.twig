@@ -1,0 +1,129 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Üye Ekleme{% endblock %}
+
+{% block content %}
+<div class="content-body">
+
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Ayarlar</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)"></a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-title">
+                        <h3>Üye Detayı </h3>
+                    </div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ settning.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ settning.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ settning.description }}</td>
+            </tr>
+            <tr>
+                <th>Keywords</th>
+                <td>{{ settning.keywords }}</td>
+            </tr>
+            <tr>
+                <th>Company</th>
+                <td>{{ settning.company }}</td>
+            </tr>
+            <tr>
+                <th>Adress</th>
+                <td>{{ settning.adress }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ settning.fax }}</td>
+            </tr>
+            <tr>
+                <th>Tele</th>
+                <td>{{ settning.tele }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ settning.email }}</td>
+            </tr>
+            <tr>
+                <th>Facebook</th>
+                <td>{{ settning.facebook }}</td>
+            </tr>
+            <tr>
+                <th>Twitter</th>
+                <td>{{ settning.twitter }}</td>
+            </tr>
+            <tr>
+                <th>Instagram</th>
+                <td>{{ settning.instagram }}</td>
+            </tr>
+            <tr>
+                <th>Linkedin</th>
+                <td>{{ settning.linkedin }}</td>
+            </tr>
+            <tr>
+                <th>Smptserver</th>
+                <td>{{ settning.smptserver }}</td>
+            </tr>
+            <tr>
+                <th>Smtpmail</th>
+                <td>{{ settning.smtpmail }}</td>
+            </tr>
+            <tr>
+                <th>Smtpport</th>
+                <td>{{ settning.smtpport }}</td>
+            </tr>
+            <tr>
+                <th>Aboutus</th>
+                <td>{{ settning.aboutus }}</td>
+            </tr>
+            <tr>
+                <th>Contact</th>
+                <td>{{ settning.contact }}</td>
+            </tr>
+            <tr>
+                <th>Referance</th>
+                <td>{{ settning.referance }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ settning.createdAt ? settning.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_up</th>
+                <td>{{ settning.updatedUp }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_settning_index') }}">back to list</a>
+
+    <a href="{{ path('admin_settning_edit', {'id': settning.id}) }}">edit</a>
+
+    {{ include('admin/settning/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- #/ onclick="return confirm ('Silinecek emin  misin') "  container -->
+{% endblock %}

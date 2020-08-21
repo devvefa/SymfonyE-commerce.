@@ -1,0 +1,41 @@
+
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Kategori Oluşturma{% endblock %}
+
+{% block content %}
+<div class="content-body">
+    {{ include('admin/user/mesagges.html.twig') }}
+
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Anamenü</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Üyeler</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Kategori Ekle</a></li>
+
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title"></h4>
+
+                         {{ include('admin/product/_form.html.twig') }}
+
+
+                        <a class="btn mb-1 btn-info" href="{{ path('admin_product_index') }}">Ürün Listesine dön</a> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- #/ onclick="return confirm ('Silinecek emin  misin') "  container -->
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'imgbase.html.twig' %}
+
+{% block title %}slids index{% endblock %}
+
+{% block body %}
+    <h1>slids index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Links</th>
+                <th>Images</th>
+                <th>Header</th>
+                <th>Paragraf</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for slid in slids %}
+            <tr>
+                <td>{{ slid.id }}</td>
+                <td>{{ slid.links }}</td>
+
+
+                <td>
+
+
+                <a href="javascript:openWin('{{ path('admin_slids_iedit',{'id': slid.id}) }}','','menubar=0,scrollbar=0,resizable=0,directories=0,toolbar=no,location=no,status=no,top=100,left=200,width=1000,height=750');">
+
+                {% if slid.imgs==null  %}
+                        <img src="{{asset('uploads') }}/images/noimg.png"height="70">
+                    {% else  %}
+                        <img src="{{ asset('uploads') }}/images/{{ slid.imgs }}" height="45">
+                {% endif  %}
+
+                </a>
+
+
+
+                <td>{{ slid.header }}</td>
+                <td>{{ slid.paragraf }}</td>
+                <td>{{ slid.status }}</td>
+                <td>
+                    <a href="{{ path('admin_slids_show', {'id': slid.id}) }}">show</a>
+                    <a href="{{ path('admin_slids_edit', {'id': slid.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_slids_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Üye Ekleme{% endblock %}
+
+{% block content %}
+<div class="content-body">
+
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Üyeler</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Üye D</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-title">
+                        <h3>Üye Detayı </h3>
+                    </div>
+
+
+
+    {{ include('admin/settning/_form.html.twig') }}
+
+    <a href="{{ path('admin_settning_index') }}">back to list</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- #/ onclick="return confirm ('Silinecek emin  misin') "  container -->
+{% endblock %}
+

@@ -1,0 +1,39 @@
+
+{% extends 'frontbase.html.twig' %}
+
+
+{% block header %} {% include 'home/head1.html.twig' %}{% endblock %}
+{% block yol %}
+
+
+
+    <div class="ads-grid">
+        <div class="container">
+            <!-- tittle heading -->
+            <h3 class="tittle-w3l">
+                <span class="heading-style">Üye Bilgileri
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+            </h3>
+            <div class="col">
+                <div class="card">
+                    <div class="card-title">
+                        <h3>Üye Bilgileri </h3>
+                    </div>
+aa
+
+                    {{ include('userpanel/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <!-- #/ onclick="return confirm ('Silinecek emin  misin') "  container -->
+{% endblock %}

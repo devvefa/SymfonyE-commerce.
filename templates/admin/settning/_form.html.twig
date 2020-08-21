@@ -1,0 +1,248 @@
+<form name="user" method="post">
+    <div class="form-group">
+      <div class="card-body">
+        <h4 class="card-title">Default Tab</h4>
+        <!-- Nav tabs -->
+          <div class="default-tab">
+              <ul class="nav nav-tabs mb-3" role="tablist">
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#seo">SEO</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#company">Şirket Bilgileri</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#sosyal">Sosyal Medya</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#smtp">SMTP </a>
+
+
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#about"> Hakkımızda Sayfası </a>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#contact"> İletişim Sayfası </a>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#ref"> Referanslar Sayfası </a></li>
+              </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="seo" role="tabpanel">
+                <div class="p-t-15">
+                    <h4>SEO Sekmesi</h4>
+
+
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">Title</label>
+                        <div class="col-lg-8">
+                        <input type="text" class="form-control" id="val-username"  value="{{ settning.title }}"name="settning[title]" placeholder="Enter a title..">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">Açıklama(description)</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="val-username"  value="{{ settning.description }}"name="settning[description]" placeholder="Enter a description..">
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">Anahtar Kelime</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="val-username"  value="{{ settning.keywords }}"name="settning[keywords]" placeholder="Enter a keywords..">
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="company">
+                <div class="p-t-15">
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">Şirket Adı</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="val-username"  value="{{ settning.company }}"name="settning[company]" placeholder="Enter a company..">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">Adres</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="val-username"  value="{{ settning.adress }}"name="settning[adress]" placeholder="Enter a adress..">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">Fax</label>
+                        <div class="col-lg-8">
+                            <input type="number" class="form-control" id="val-username"  value="{{ settning.fax }}"name="settning[fax]" placeholder="Enter a fax..">
+                        </div>
+                    </div>
+
+                                       <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">Telefon</label>
+                        <div class="col-lg-8">
+                            <input type="number" class="form-control" id="val-username"  value="{{ settning.tele }}"name="settning[tele]" placeholder="Enter a telefon..">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">Email</label>
+                        <div class="col-lg-8">
+                            <input type="email" class="form-control" id="val-username"  value="{{ settning.email }}"name="settning[email]" placeholder="Enter a email..">
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+
+
+
+            <div class="tab-pane fade" id="sosyal">
+                <div class="p-t-15">
+
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">Facebook</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="val-username"  value="{{ settning.facebook }}"name="settning[facebook]" placeholder="Enter a facebook..">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">Twitter</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="val-username"  value="{{ settning.twitter }}"name="settning[twitter]" placeholder="Enter a twitter..">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">Instagram</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="val-username"  value="{{ settning.instagram }}"name="settning[instagram]" placeholder="Enter a instagram..">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">Linkedin</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="val-username"  value="{{ settning.linkedin }}"name="settning[linkedin]" placeholder="Enter a linkedin..">
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="smtp">
+                <div class="p-t-15">
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">SMTP Server</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="val-username"  value="{{ settning.smptserver }}"name="settning[smptserver]" placeholder="Enter a smtpserver..">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">SMTP Port</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="val-username"  value="{{ settning.smtpport }}"name="settning[smtpport]" placeholder="Enter a smtpport..">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="val-username">SMTP Mail</label>
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control" id="val-username"  value="{{ settning.smtpmail }}"name="settning[smtpmail]" placeholder="Enter a smtpsmail..">
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="about">
+                <div class="p-t-15">
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="editor">Hakkımızda <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-lg-8">
+                            <textarea id="editorAU" rows="10" cols="100" name="settning[aboutus]" > {{ settning.aboutus }}</textarea>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="contact">
+                <div class="p-t-15">
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="editor">İletişim <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-lg-8">
+                            <textarea id="editorCON" rows="10" cols="100" name="settning[contact]" > {{ settning.contact }}</textarea>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="ref">
+                <div class="p-t-15">
+                    <div class="form-group row">
+                        <label class="col-lg-2 col-form-label" for="editor">Referans <span class="text-danger">*</span>
+                        </label>
+                        <div class="col-lg-8">
+                            <textarea id="editorRef" rows="10" cols="100" name="settning[referance]" > {{ settning.referance }}</textarea>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn">Ekle</button>
+            </div>
+
+
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editorAU' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editorCON' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editorRef' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+</form>

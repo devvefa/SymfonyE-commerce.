@@ -1,0 +1,92 @@
+{% extends 'adminbase.html.twig' %}
+{% block title %}Kategori listesi{% endblock %}
+{% block content %}
+<div class="content-body">
+
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Anamenü</a></li>
+                <li class="breadcrumb-item active"><a href="javascript:void(0)">Siparişler</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">siparişler</h4>
+
+
+                        <div class="table-responsive">
+                            <table class="table header-border">
+                                <thead>
+
+
+                                <th>Name</th>
+                                <th>Amount</th>
+                                <th>City</th>
+                                <th>Phone</th>
+                                <th>Shipinfo</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Göster</th>
+                                <th>Sil</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for order in orders %}
+                                    <tr>
+                                        <td>{{ order.name }}</td>
+                                        <td>{{ order.amount }}</td>
+
+
+                                        <td>{{ order.city }}</td>
+                                        <td>{{ order.phone }}</td>
+                                        <td>{{ order.shipinfo }}</td>
+                                        <td>{{ order.status }}</td>
+                                        <td>{{ order.createdAt ? order.createdAt|date('Y-m-d ') : '' }}</td>
+                                        <td>
+
+                                            <a href="javascript:openWin('{{ path('admin_orders_show', {'id': order.id}) }}','','menubar=0,scrollbar=0,resizable=0,directories=0,toolbar=no,location=no,status=no,top=100,left=200,width=1000,height=750');">
+
+                                                Göster</a>
+
+                                        <td>   {{ include('orders/_delete_form.html.twig') }}</td>
+
+
+                                        </td>
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="13">Sipariş bulunamadı</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    {% block footer %} {% include 'home/footer.html.twig' %}{% endblock %}
+
+{#
+$catlist=$categoryrepository->findby(['parent_id'=>0]);
+$Kuser = $this->getUser();
+
+
+$kuserid = $Kuser->getid();
+//  $ord=$orderssRepository->findBy(['userid'=>$kuserid]);
+
+return $this->render('orderss/index.html.twig', [
+'orderss' => $orderssRepository->findAll(),
+'catlist' => $catlist,
+//  'ord'=>$ord#}

@@ -1,0 +1,32 @@
+
+{% extends 'frontbase.html.twig' %}
+
+
+
+{% block title %} {{ setSite[0].title }}{% endblock %}
+{% block keywords %}  {{setSite[0].keywords}}{% endblock %}
+{% block description %}  {{setSite[0].description}}{% endblock %}
+
+{% block head1 %}{% include 'home/head1.html.twig' %}{% endblock %}
+{% block header %}{% include 'home/header.html.twig' %}{% endblock %}
+
+{% block yol %}
+    <div class="services-breadcrumb">
+        <div class="agile_inner_breadcrumb">
+            <div class="container">
+                <ul class="w3_short">
+                    <li>
+                        <a style=" color:black ;" href="">Home</a>
+                        <i>|</i>
+                    </li>
+                    <li>  <a href="{{ path('hakkimizda') }}">Hakkımızda</a></li>
+                    {{ setSite[0].aboutus|raw}}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block javascript %} {% include('home/javascript.html.twig')  %}{% endblock %}
+{% block footer %} {% include 'home/footer.html.twig' %}{% endblock %}

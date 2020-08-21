@@ -1,0 +1,14 @@
+{% for label,flashes in app.session.flashbag.all %}
+    {%   for flash in flashes  %}
+        {% if (label=='success')%}
+            <div class="alert alert-success">{{ flash }}  </div>
+
+        {% elseif (label=='error') %}
+            <div class="alert alert-danger">error<strong>error</strong>{{ flash }}</div>
+        {% elseif (label=='info') %}
+            <div class="alert alert-info"> biligi<strong>info</strong>{{ flash }}</div>
+        {% elseif (label=='warning') %}
+            <div class="alert alert-warning">Dikkat<strong>warning</strong>{{ flash }}</div>
+        {% endif %}
+    {% endfor %}
+{% endfor %}

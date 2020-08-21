@@ -1,0 +1,13 @@
+{% extends 'imgbase.html.twig' %}
+
+{% block title %}Image{% endblock %}
+
+{% block body %}
+    {{ include('admin/image/_form.html.twig') }}
+
+    {% for image in imagelist  %}
+        <img  src=" {{ asset('uploads') }}/images/{{ image.image }}" height="200">
+        <a href="{{ path('admin_image_delete',{'id':image.id,'pid':image.productid }) }}" onclick="return confirm ('Silinecek emin  misin') " class="btn mb-1 btn-danger"> Sil <span class="btn-icon-right"><i class="fa fa-close"></i></span></a></td>                                    </tr>
+
+    {% endfor %}
+{% endblock %}
